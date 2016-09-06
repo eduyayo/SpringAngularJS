@@ -1,0 +1,8 @@
+<project default="copy-resources">
+  <target name="init"/>
+  <target name="copy-resources" depends="init">
+    <copy todir="target/classes/static/static" filtering="false">
+      <fileset dir="bower_components" includes="**/*" excludes="**/*.java"/>
+    </copy>
+  </target>
+</project>
