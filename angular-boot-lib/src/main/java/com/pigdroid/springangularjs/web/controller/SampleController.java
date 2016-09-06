@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
+import org.springframework.hateoas.ExposesResourceFor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import com.pigdroid.springangularjs.utils.PageWrapper;
 
 @RequestMapping("/city")
 @Controller
+@ExposesResourceFor(CityEntity.class)
 public class SampleController extends CrudController<CityEntity> {
 
 	@Autowired
