@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	
+>
+<head lang="es">
+<meta charset="UTF-8" />
+<title text="#{head.title}"></title>
+<link rel="stylesheet" href="/static/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/app/css/app.css" />
+<link rel="stylesheet" href="/static/fontawesome/css/font-awesome.min.css" />
+
+<script type="text/javascript" src="/static/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/static/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/app/list.js"></script>
+
+</head>
+<body id="initBody">
+
+	<div replace="fragments/header :: headerbar(logout=true)"></div>
+
+	<div class="container">
+		<div class="row" style="min-height: 60px;"></div>
+
+		<div class="row" if="${successMessage!=''}">
+			<div class="alert alert-success" role="alert" text="${successMessage}"></div>
+		</div>
+		<div class="row" if="${dangerMessage!=''}">
+			<div class="alert alert-danger" role="alert" text="${dangerMessage}"></div>
+		</div>
+
+
+		<div class="row-fluid">
+			<div class="offset1 span8 pull-right">
+				<div class="buttons-head">
+					<ul class="nav nav-pills">
+						<li role="presentation" class="active btn-xs">
+							<a id="filterBtn3" href="#" text="#{button.search.generic}" data-toggle="modal"
+								data-target=".bs-filter-modal-lg" formtarget="_blank"></a>
+						</li>
+
+						<li role="presentation" class="active btn-xs"><a href="/city/new}" formtarget="_blank"
+							 text="#{button.new}"
+						></a></li>
+					</ul>
+				</div>
+			</div>
+
+			<h2 text="#{city.gestion}"></h2>
+		</div>
+
+		<hr />
+		<div class="row">
+			<div if="${not #lists.isEmpty(items)}">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>
+								<i class="orderClick fa fa-sort" aria-hidden="true" role="name"></i>
+								&nbsp; <span text="#{city.field.name}"></span>
+							</th>
+							<th>
+								<i class="orderClick fa fa-sort" aria-hidden="true" role="state"></i>
+								&nbsp; <span text="#{city.field.state}"></span>
+							</th>
+							<th>
+								<i class="orderClick fa fa-sort" aria-hidden="true" role="country"></i>
+								&nbsp; <span text="#{city.field.country}"></span>
+							</th>
+							<th text="#{button.view}"></th>
+							<th text="#{button.edit}"></th>
+							<th text="#{button.remove}"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr each="row : ${items}">
+							<td text="${row.name}"></td>
+							<td text="${row.state}"></td>
+							<td text="${row.country}"></td>
+							<td><a href="${'/city/' + row.id}" title="#{city.view}"><strong><span
+										class="fa fa-search text-info"
+									></span></strong></a></td>
+							<td><a href="${'/city/edit/' + row.id}" title="#{city.edit}"><strong><span
+										class="fa fa-edit text-info"
+									></span></strong></a></td>
+							<td><a data-toggle="modal" data-target=".bs-confirm-modal-lg" class="removeItem"
+							 rel="${'/city/delete/' + row.id}" href="#" title="#{city.remove}"><strong><span
+										class="fa fa-trash-o text-info"
+									></span></strong></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+
+
+			<div replace="fragments/pagination :: paginationbar"></div>
+
+			<div replace="fragments/confirm :: confirmDialog(question=#{city.question.remove})"></div>
+
+			<div replace="fragments/filter :: filterDialog(type=city)"></div>
+
+
+		</div>
+	</div>
+</body>
+
+</html>

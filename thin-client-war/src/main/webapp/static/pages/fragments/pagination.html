@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	
+>
+<head lang="es">
+<meta charset="UTF-8" />
+<title text="#{head.title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<!-- Pagination Bar -->
+	<div  class="row-fluid" fragment='paginationbar'>
+		<div class="offset1 span8 pull-right">
+			<ul class='pagination pagination-centered'>
+				<li class="${page.firstPage}?'disabled':''"><span if='${page.firstPage}'>← </span><span
+					 text="#{button.first}"  if='${page.firstPage}'
+				></span> <a if='${not page.firstPage}' href='@{${page.url}(page=0,size=${page.size})}'>← <span
+						 text="#{button.first}"
+					></span></a></li>
+				<li class="${page.hasPreviousPage}? '' : 'disabled'"><span
+					 if='${not page.hasPreviousPage}'
+				>«</span> <a if='${page.hasPreviousPage}'
+					 href='@{${page.url}(page=${page.number-2},size=${page.size})}' title='Go to previous page'
+				>«</a></li>
+				<li each='item : ${page.items}' class="${item.current}? 'active' : ''"><span
+					 if='${item.current}' text='${item.number}'
+				>1</span> <a if='${not item.current}'
+					 href='@{${page.url}(page=${item.number-1},size=${page.size})}'
+				><span text='${item.number}'>1</span></a></li>
+				<li class="${page.hasNextPage}? '' : 'disabled'"><span if='${not page.hasNextPage}'>»</span>
+					<a if='${page.hasNextPage}' href='@{${page.url}(page=${page.number},size=${page.size})}'
+					title='Go to next page'
+				>»</a></li>
+				<li class="${page.lastPage}? 'disabled' : ''"><span text="#{button.last}" if='${page.lastPage}'></span><span
+					 if='${page.lastPage}'
+				> →</span> <a if='${not page.lastPage}'
+					 href='@{${page.url}(page=${page.totalPages - 1},size=${page.size})}'
+				><span text="#{button.last}"></span> →</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+</body>
+
+</html>

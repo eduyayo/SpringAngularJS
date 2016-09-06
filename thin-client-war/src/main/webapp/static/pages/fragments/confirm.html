@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	
+>
+<head lang="es">
+<meta charset="UTF-8" />
+<title text="#{head.title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<!-- Pagination Bar -->
+	<div id="confirmOperation" fragment='confirmDialog(question)'>
+
+		<div class="modal fade bs-confirm-modal-lg" tabindex="-1" role="dialog">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<h4 class="modal-title" text="#{button.confirm}"></h4>
+					</div>
+					<div class="modal-body">
+						<p>
+							<strong><span text="${question}"></span></strong>
+						</p>
+					</div>
+					<div class="modal-footer">
+						<form id="confirmForm">
+							<button type="submit" class="btn btn-primary" text="#{button.accept}"></button>
+							<button type="button" class="btn btn-warning" data-dismiss="modal" text="#{button.cancel}"></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+</body>
+
+</html>

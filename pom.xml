@@ -15,19 +15,25 @@
 	</parent>
 
 	<name>angular</name>
-	<description>angular sample</description>
-
 
 	<properties>
 	</properties>
 
 	<modules>
-		<module>angular-boot-lib</module>
-		<module>angular-war</module>
+		<module>service-boot-lib</module>
+		<module>service-war</module>
+		<module>thin-client-war</module>
+
 	</modules>
 
 	<dependencyManagement>
-		<!-- TODO -->
+		<dependencies>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-lang3</artifactId>
+				<version>3.4</version>
+			</dependency>
+		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>

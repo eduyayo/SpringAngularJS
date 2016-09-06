@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	
+>
+<head lang="es">
+<meta charset="UTF-8" />
+<title text="#{head.title}"></title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<!-- footer -->
+	<footer fragment='footerFgmt'>
+		<script type="text/javascript" src="/static/angular/angular.js"></script>
+		<!--
+	<script type="text/javascript"
+		src="./../static/angular-resource/angular-resource.min.js"></script>
+		-->
+		<script type="text/javascript" src="/static/angular-messages/angular-messages.min.js"></script>
+		<script type="text/javascript" src="/static/angular-route/angular-route.min.js"></script>
+		<script type="text/javascript" src="/static/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+		<script type="text/javascript" src="/static/angular-block-ui/dist/angular-block-ui.min.js"></script>
+		<script type="text/javascript" src="/static/angular-bootstrap-show-errors/src/showErrors.min.js"></script>
+
+
+		<script type="text/javascript" src="/app/app.js"></script>
+
+		<!-- Controllers y Servicios personalizados -->
+		<script type="text/javascript" src="/app/services/cityService.js" if='${controller=="city"}'></script>
+		<script type="text/javascript" src="/app/controllers/cityController.js" if='${controller=="city"}'></script>
+		<script type="text/javascript" src="/app/validation/cityValidation.js" if='${controller=="city"}'></script>
+
+	</footer>
+
+</body>
+
+</html>
